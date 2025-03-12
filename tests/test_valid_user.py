@@ -9,8 +9,8 @@ def create_client():
         yield app_client
 
 def test_valid_user_content(client):
-        """Test valid user route"""
-        response = client.get("/user/jack")
-        assert response.status_code == 200
-        json_data = response.get_json()
-        assert json_data["message"] == "Valid User"
+    """Test valid user route"""
+    response = client.get("/user/jack")
+    assert response.status_code == 200
+    json_data = response.get_json()
+    assert json_data["message"] == "Valid User"
