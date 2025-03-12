@@ -9,7 +9,8 @@ def create_client():
         yield app_client
 
 def test_valid_user_content(client):
-    """flask unit testing for content in valid parameter page"""
-    response = client.get("/user/jack")
-    assert response.status_code == 200
-    assert b"jack".upper() in response.data
+        """Test valid user route"""
+        response = client.get("/user/jack")
+        assert response.status_code == 200
+        json_data = response.get_json()
+        assert json_data["message"] == "Valid User"
